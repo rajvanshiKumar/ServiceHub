@@ -1,6 +1,6 @@
 from decouple import config
 from datetime import timedelta
-
+import os
 BASE_DIR = __import__('pathlib').Path(__file__).resolve().parent.parent
 
 SECRET_KEY   = config('SECRET_KEY', default='django-insecure-change-me')
@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'apps.Users',
     'apps.Services',
     'apps.Orders',
+    
 ]
 
 MIDDLEWARE = [
@@ -32,6 +33,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'ServiceHub12.urls'
@@ -89,7 +91,15 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
+    'https://servicehub-backend-yyh4.onrender.com',
 ]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r'^https://.*\.onrender\.com$',  # ✅ allows ALL your Render subdomains
+]
+
 CORS_ALLOW_CREDENTIALS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
