@@ -1,9 +1,8 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8000/api',
+  baseURL: import.meta.env.VITE_API_URL,
 });
-
 // Request — attach token
 API.interceptors.request.use(config => {
   const token = localStorage.getItem('access_token');
@@ -24,7 +23,7 @@ API.interceptors.response.use(
         if (!refresh) throw new Error('No refresh token');
 
         const { data } = await axios.post(
-          `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api'}/auth/token/refresh/`,
+          `${import.meta.env.VITE_API_URL}/auth/token/refresh/`,
           { refresh }
         );
 
