@@ -436,10 +436,10 @@ function ServiceDetail() {
         {activeTab === 'reviews' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '700px' }}>
             {[
-              { name: 'Rajvnahsi gupta.',  rating: 5, comment: 'Excellent service! Highly professional and knowledgeable. Totally worth the price.', date: '2 weeks ago' },
+              { name: 'Rajvanshi gupta.',  rating: 5, comment: 'Excellent service! Highly professional and knowledgeable. Totally worth the price.', date: '2 weeks ago' },
               { name: 'Rabindra nath tagor.',  rating: 5, comment: 'Amazing experience. The provider was very patient and explained everything clearly.', date: '1 month ago' },
               { name: 'Paramanand yadav.',   rating: 4, comment: 'Very good overall. Learned a lot. Could be slightly more detailed in some areas.', date: '1 month ago' },
-              { name: 'Muskan.',  rating: 5, comment: 'Best investment I made this year. Already seeing results in my work.', date: '2 months ago' },
+              { name: 'Muskan',  rating: 5, comment: 'Best investment I made this year. Already seeing results in my work.', date: '2 months ago' },
             ].map((review, i) => (
               <div key={i} style={{
                 backgroundColor: 'rgba(255,255,255,0.03)',

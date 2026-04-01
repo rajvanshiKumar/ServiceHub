@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../services/api';
 import { useAuth } from '../context/AuthContext';
@@ -33,7 +33,7 @@ export default function Register() {
       if (!/[A-Z]/.test(value)) return 'Add uppercase letter';
       if (!/[a-z]/.test(value)) return 'Add lowercase letter';
       if (!/[0-9]/.test(value)) return 'Add a number';
-      if (!/[!@#$%^&*(),.?":{}|<>_\-]/.test(value)) return 'Add special character';
+      if (!/[!@#$%^&*(),.?":{}|<>_-]/.test(value)) return 'Add special character';
     }
     return '';
   };
@@ -63,7 +63,7 @@ export default function Register() {
     /[A-Z]/.test(form.password),
     /[a-z]/.test(form.password),
     /[0-9]/.test(form.password),
-    /[!@#$%^&*(),.?":{}|<>_\-]/.test(form.password),
+    /[!@#$%^&*(),.?":{}|<>_-]/.test(form.password),
   ];
   const strengthScore = strength.filter(Boolean).length;
   const strengthColor = strengthScore <= 2 ? '#e94560'

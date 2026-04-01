@@ -25,7 +25,7 @@ export const services = [
     experience: '20 Years', students: 12400, duration: '6 Months',
     provider: 'K.V.Rao', providerTitle: 'Senior Python Developer',
     highlights: ['Django REST Framework', 'React Integration', 'Deployment on AWS', 'Live Projects'],
-    performance: 95, about: 'Arjun has trained 1200+ students in full stack Python development with a 95% placement rate.'
+    performance: 95, about: 'Sumit has trained 1200+ students in full stack Python development with a 95% placement rate.'
   },
   {
     id: 2, category: 'Education & Tutoring', categoryValue: 'education',
@@ -36,7 +36,7 @@ export const services = [
     experience: '7 Years', students: 980, duration: '4 Months',
     provider: 'Satish Gupta', providerTitle: 'ML Engineer at Google',
     highlights: ['Scikit-learn', 'TensorFlow Basics', 'Flask APIs', 'Model Deployment'],
-    performance: 92, about: 'Priya brings industry-level ML expertise with hands-on real-world datasets.'
+    performance: 92, about: 'Vinit brings industry-level ML expertise with hands-on real-world datasets.'
   },
   {
     id: 3, category: 'Education & Tutoring', categoryValue: 'education',

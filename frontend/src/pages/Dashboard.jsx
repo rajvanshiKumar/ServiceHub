@@ -54,26 +54,28 @@ export default function Dashboard() {
   const [showOld,     setShowOld]     = useState(false);
   const [showNew,     setShowNew]     = useState(false);
 
-  useEffect(() => { fetchAll(); }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // 1. Define fetchAll FIRST
+const fetchAll = async () => {
+  setLoading(true);
+  try {
+    const [s, o, p] = await Promise.all([
+      getDashboardStats(),
+      getUserOrders(),
+      getPaymentHistory(),
+    ]);
+    setStats(s.data.stats);
+    setOrders(o.data.orders);
+    setPayments(p.data.payments);
+  } catch (err) {
+    if (err.response?.status === 401) { logout(); navigate('/login'); }
+  } finally {
+    setLoading(false);
+  }
+};
 
-  const fetchAll = async () => {
-    setLoading(true);
-    try {
-      const [s, o, p] = await Promise.all([
-        getDashboardStats(),
-        getUserOrders(),
-        getPaymentHistory(),
-      ]);
-      setStats(s.data.stats);
-      setOrders(o.data.orders);
-      setPayments(p.data.payments);
-    } catch (err) {
-      if (err.response?.status === 401) { logout(); navigate('/login'); }
-    } finally {
-      setLoading(false);
-    }
-  };
-
+// 2. Then useEffect AFTER
+useEffect(() => { fetchAll(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const handleUpdateProfile = async e => {
     e.preventDefault();
     setPLoad(true); setPMsg(''); setPErr('');
